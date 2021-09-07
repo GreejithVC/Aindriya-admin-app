@@ -107,12 +107,12 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
 
-  List<bool> selected = [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+  List<bool> selected = [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
   void select(int n, displayMobileLayout) {
     if (displayMobileLayout){
       widget.callback();
   }
-    for (int i = 0; i < 17; i++) {
+    for (int i = 0; i < 18; i++) {
       if (i != n) {
         selected[i] = false;
       } else {
@@ -373,7 +373,19 @@ class _NavBarState extends State<NavBar> {
               }
             },
           ),
-
+          NavBarItem(
+            icon: Feather.anchor,
+            navtext:S.of(context).package_type,
+            icon2: Icons.arrow_forward_ios,
+            active: selected[17],
+            touched: () {
+              // ignore: deprecated_member_use
+              VRouter.of(context).push('/packageType');
+              setState(() {
+                select(17,displayMobileLayout);
+              });
+            },
+          ),
 
 
 
