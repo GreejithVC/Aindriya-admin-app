@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:login_and_signup_web/src/elements/AppDrawer.dart';
 import 'package:login_and_signup_web/src/pages/Orders.dart';
+import 'package:login_and_signup_web/src/pages/package_type.dart';
 import 'package:login_and_signup_web/src/pages/payment_gateway.dart';
 
 import 'src/pages/currency.dart';
@@ -207,6 +208,12 @@ class MyApp extends StatelessWidget {
                             name: 'shopType',
                             widget: ShopTypes(),
                             aliases: ['/User'],
+                          ),
+                          VWidget(
+                            path: '/packageType',
+                            name: 'packageType',
+                            widget: PackageTypes(),
+                            aliases: ['/packageType'],
                           ),
 
                           VWidget(

@@ -2494,6 +2494,15 @@ class S {
       args: [],
     );
   }
+  /// `Package type`
+  String get package_type {
+    return Intl.message(
+      'Package type',
+      name: 'package_type',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Vendor`
   String get vendor {
@@ -3292,6 +3301,15 @@ class S {
     return Intl.message(
       'Please enter the country name',
       name: 'please_enter_the_country_name',
+      desc: '',
+      args: [],
+    );
+  }
+  /// `Manage package type`
+  String get manage_package_type {
+    return Intl.message(
+      'Manage package type',
+      name: 'manage_package_type',
       desc: '',
       args: [],
     );
