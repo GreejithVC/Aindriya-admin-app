@@ -193,6 +193,35 @@ class SecondaryController extends ControllerMVC {
     }
   }
 
+  addPackageType(context, id, pageType) {
+    if (generalFormKey.currentState.validate()) {
+      generalFormKey.currentState.save();
+      if (pageType == 'do_add') {
+        Overlay.of(context).insert(loader);
+        setState(() => shopTypeList.clear());
+        FirebaseFirestore.instance
+            .collection('packageDetails')
+            .doc("sample1")
+            .set({
+          'name': packageTypeData.focusPackageTypeName,
+          'maxProducts': packageTypeData.maxProductSupported,
+          'maxCategory': packageTypeData.maxCategorySupported,
+          'isFeaturedShop': packageTypeData.featuredShop,
+          'monthlyRate': packageTypeData.monthlyRate,
+          'yearlyRate': packageTypeData.yearlyRate
+        }).catchError((e) {
+          print(e);
+        }).whenComplete(() {
+          Navigator.pop(context);
+          listenForPackageTypeList();
+          Helper.hideLoader(loader);
+        });
+        showToast("Update Successfully",
+            gravity: Toast.BOTTOM, duration: Toast.LENGTH_SHORT);
+      }
+    }
+  }
+
   Future<void> listenForDeliveryTips() async {
     final Stream<DeliveryTipsModel> stream = await getDeliveryTips();
     stream.listen((DeliveryTipsModel _list) {

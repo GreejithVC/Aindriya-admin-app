@@ -408,7 +408,7 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
                                         FlatButton(
                                           onPressed: () {
                                             widget.pageType == 'add'
-                                                ? widget.con.addEdFocusType(
+                                                ? widget.con.addPackageType(
                                                     context, 'null', 'do_add')
                                                 : widget.con.addEdFocusType(
                                                     context,
@@ -449,75 +449,5 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
             ),
           ),
         ));
-  }
-
-  // ignore: non_constant_identifier_names
-  Imagepickerbottomsheet(type) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return SafeArea(
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                new ListTile(
-                  leading: new Icon(Icons.camera),
-                  title: new Text(S.of(context).camera),
-                  onTap: () => getImage(type),
-                ),
-                new ListTile(
-                  leading: new Icon(Icons.image),
-                  title: new Text(S.of(context).gallery),
-                  onTap: () => getImagegaller(type),
-                ),
-              ],
-            ),
-          );
-        });
-  }
-
-  File _image;
-  File _image2;
-  int currStep = 0;
-  final picker = ImagePicker();
-
-  Future getImage(type) async {
-    final pickedFile = await picker.getImage(
-        source: ImageSource.camera, maxHeight: 480, maxWidth: 640);
-    setState(() {
-      if (pickedFile != null) {
-        if (type == 'type1') {
-          _image = File(pickedFile.path);
-          widget.con.shopTypeData.previewImage = _image;
-        } else {
-          _image2 = File(pickedFile.path);
-          widget.con.shopTypeData.coverImage = _image2;
-        }
-
-        Navigator.of(context).pop();
-      } else {
-        print('No image selected.');
-      }
-    });
-  }
-
-  Future getImagegaller(type) async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
-    setState(() {
-      if (pickedFile != null) {
-        if (type == 'type1') {
-          _image = File(pickedFile.path);
-          widget.con.shopTypeData.previewImage = _image;
-        } else {
-          _image2 = File(pickedFile.path);
-          widget.con.shopTypeData.coverImage = _image2;
-        }
-        // widget.con.categoryData.uploadImage = pickedFile;
-
-        Navigator.of(context).pop();
-      } else {
-        print('No image selected.');
-      }
-    });
   }
 }
