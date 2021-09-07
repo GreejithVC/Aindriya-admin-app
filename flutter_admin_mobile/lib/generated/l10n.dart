@@ -2634,11 +2634,30 @@ class S {
     );
   }
 
+  /// `Add package type`
+  String get add_package_type {
+    return Intl.message(
+      'Add package type',
+      name: 'add_package_type',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Type name`
   String get type_name {
     return Intl.message(
       'Type name',
       name: 'type_name',
+      desc: '',
+      args: [],
+    );
+  }
+  /// `Type name`
+  String get package_Type_name {
+    return Intl.message(
+      'Package type name',
+      name: 'package_type_name',
       desc: '',
       args: [],
     );
@@ -2649,6 +2668,42 @@ class S {
     return Intl.message(
       'Commission',
       name: 'commission',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get max_product_supported {
+    return Intl.message(
+      'Max Product Supported',
+      name: 'max_product_supported',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get monthly_rate {
+    return Intl.message(
+      'Monthly Rate',
+      name: 'monthly_rate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get yearly_rate {
+    return Intl.message(
+      'Yearly Rate',
+      name: 'yearly_rate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get max_category_supported {
+    return Intl.message(
+      'Max Category Supported',
+      name: 'max_category_supported',
       desc: '',
       args: [],
     );
@@ -3310,6 +3365,15 @@ class S {
     return Intl.message(
       'Manage package type',
       name: 'manage_package_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get field_required {
+    return Intl.message(
+      'This field is required',
+      name: 'field_required',
       desc: '',
       args: [],
     );

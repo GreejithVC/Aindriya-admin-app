@@ -3,13 +3,16 @@
 
 class PackageTypeModel {
  int id;
- String focusTypeName;
- String colorCode;
+ String maxProductSupported;
+ String maxCategorySupported;
+ String focusPackageTypeName;
+ bool featuredShop;
+ String monthlyRate;
+ String yearlyRate;
+
  var previewImage;
  var coverImage;
- String shopTypeId;
- String date;
- String commission;
+ String packageTypeId;
 
 
 
@@ -27,13 +30,17 @@ class PackageTypeModel {
   PackageTypeModel.fromJSON(Map<String, dynamic> jsonMap) {
     try {
       id = jsonMap['id'];
-      focusTypeName = jsonMap['focusTypeName'] != null ? jsonMap['focusTypeName'] : '';
-      commission = jsonMap['commission'] != null ? jsonMap['commission'] : '';
-      colorCode = jsonMap['colorCode'] != null ? jsonMap['colorCode'] : '';
+      focusPackageTypeName = jsonMap['focusPackageTypeName'] != null ? jsonMap['focusPackageTypeName'] : '';
+      maxProductSupported = jsonMap['maxProductSupported'] != null ? jsonMap['maxProductSupported'] : '';
+      maxCategorySupported = jsonMap['maxCategorySupported'] != null ? jsonMap['maxCategorySupported'] : '';
+      featuredShop = jsonMap['featuredShop'] != null ? jsonMap['featuredShop'] : '';
+      monthlyRate = jsonMap['monthlyRate'] != null ? jsonMap['monthlyRate'] : '';
+      yearlyRate = jsonMap['yearlyRate'] != null ? jsonMap['yearlyRate'] : '';
+
+
       previewImage = jsonMap['previewImage'] != null ? jsonMap['previewImage'] : '';
       coverImage = jsonMap['coverImage'] != null ? jsonMap['coverImage'] : '';
-      shopTypeId = jsonMap['shopTypeId'] != null ? jsonMap['shopTypeId'] : '';
-      date = jsonMap['date'] != null ? jsonMap['date'] : '';
+      packageTypeId = jsonMap['shopTypeId'] != null ? jsonMap['shopTypeId'] : '';
 
 
     } catch (e) {
@@ -44,12 +51,10 @@ class PackageTypeModel {
 
   Map toMap() {
     var map = new Map<String, dynamic>();
-    map["title"] = focusTypeName;
-    map["colorCode"] = colorCode;
+    map["title"] = focusPackageTypeName;
     map["previewImage"] = previewImage;
     map["coverImage"] = coverImage;
-    map["shopFocusType"] = shopTypeId;
-    map["date"] = date;
+    map["shopFocusType"] = packageTypeId;
     map["id"] = id;
 
 

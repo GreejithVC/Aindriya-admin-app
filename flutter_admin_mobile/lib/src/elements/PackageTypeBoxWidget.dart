@@ -25,7 +25,7 @@ class _PackageTypeBoxWidgetState extends StateMVC<PackageTypeBoxWidget> {
 
         child:  Container(
           decoration: BoxDecoration(
-              color: HexColor(widget.packageTypeData.colorCode),
+              color: Colors.grey,
               borderRadius: BorderRadius.circular(15.0),
               boxShadow: [
                 BoxShadow(
@@ -122,7 +122,7 @@ class _PackageTypeBoxWidgetState extends StateMVC<PackageTypeBoxWidget> {
                                                       child: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                           children:[
-                                                            Text(widget.packageTypeData.focusTypeName,style:TextStyle(color:Colors.white)),
+                                                            Text(widget.packageTypeData.focusPackageTypeName,style:TextStyle(color:Colors.white)),
 
                                                           ]
                                                       )
@@ -164,7 +164,7 @@ class _PackageTypeBoxWidgetState extends StateMVC<PackageTypeBoxWidget> {
                           child:Row(
                               mainAxisAlignment:MainAxisAlignment.center,
                               children:[
-                                Text('${widget.packageTypeData.commission} % Commission',style: Theme.of(context).textTheme.bodyText1,)
+                                Text('${widget.packageTypeData.maxProductSupported} % Commission',style: Theme.of(context).textTheme.bodyText1,)
 
                               ]
                           ),

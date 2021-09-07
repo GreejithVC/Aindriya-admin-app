@@ -163,7 +163,7 @@ class AddEdPopupHelper {
       builder: (context) => PackageDetailsWidget(
             con: con,
             callback: callback,
-            shopType: details,
+            packageType: details,
             pageType: pageType,
           ));
 }
