@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_and_signup_web/src/elements/PackageDetailsWidget.dart';
 import 'package:login_and_signup_web/src/elements/PackageTypeBoxWidget.dart';
 import 'package:login_and_signup_web/src/models/packagetype.dart';
 import '../../generated/l10n.dart';
@@ -47,46 +48,38 @@ class _PackageTypesState extends StateMVC<PackageTypes> {
                     SizedBox(height: 20),
                     Container(
                       margin: EdgeInsets.only(
-                          left: 30.0, top: 25.0, right: 30, bottom: 10.0),
-                      child: Wrap(
-                          alignment: WrapAlignment.spaceBetween,
-                          children: [
-                            Div(
-                                colS: 6,
-                                colM: 6,
-                                colL: 6,
-                                child: Wrap(children: [
-                                  Text(
-                                    S.of(context).manage_package_type,
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Container(
-                                    height: 30.0,
-                                    width: 30.0,
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: IconButton(
-                                      padding: EdgeInsets.zero,
-                                      color: Colors.white,
-                                      icon: const Icon(Icons.add),
-                                      iconSize: 30.0,
-                                      //color: Palette.facebookBlue,
-                                      onPressed: () {
-                                        AddEdPopupHelper.exit(
-                                            context,
-                                            _con,
-                                            this.callback,
-                                            PackageTypeModel(),
-                                            'add');
-                                      },
-                                    ),
-                                  ),
-                                ])),
-                          ]),
+                          left: 40.0, top: 25.0, right: 30, bottom: 10.0),
+                      child: Wrap(children: [
+                        Text(
+                          S.of(context).manage_package_type,
+                          style:
+                              Theme.of(context).textTheme.subtitle1,
+                        ),
+                        SizedBox(width: 10),
+                        Container(
+                          height: 30.0,
+                          width: 30.0,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            shape: BoxShape.circle,
+                          ),
+                          child: IconButton(
+                            padding: EdgeInsets.zero,
+                            color: Colors.white,
+                            icon: const Icon(Icons.add),
+                            iconSize: 30.0,
+                            //color: Palette.facebookBlue,
+                            onPressed: () {
+                              AddEdPopupHelper.exit(
+                                  context,
+                                  _con,
+                                  this.callback,
+                                  PackageTypeModel(),
+                                  'add');
+                            },
+                          ),
+                        ),
+                      ]),
                     ),
                     SizedBox(height: 20),
                     _con.packageTypeList.isEmpty
@@ -167,7 +160,7 @@ class _PackageTypesState extends StateMVC<PackageTypes> {
 class AddEdPopupHelper {
   static exit(context, con, callback, details, pageType) => showDialog(
       context: context,
-      builder: (context) => ShopDetailsWidget(
+      builder: (context) => PackageDetailsWidget(
             con: con,
             callback: callback,
             shopType: details,
