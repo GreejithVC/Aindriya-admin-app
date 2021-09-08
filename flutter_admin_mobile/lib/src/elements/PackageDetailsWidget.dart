@@ -56,8 +56,8 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
       currentColor = Color(0xff443a49);
       // widget.con.shopTypeData.colorCode = '#$code';
     } else {
-      _value = widget.packageType.packageTypeId;
-      widget.con.shopTypeData.shopTypeId = widget.packageType.packageTypeId;
+      _value = widget.packageType.id;
+      widget.con.shopTypeData.shopTypeId = widget.packageType.id;
       // widget.con.shopTypeData.colorCode = widget.packageType.colorCode;
 
       // pickerColor = HexColor(widget.packageType.colorCode);
@@ -141,11 +141,11 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
                                               textAlign: TextAlign.left,
                                               autocorrect: true,
                                               initialValue: widget.packageType
-                                                  .focusPackageTypeName,
+                                                  .packageName,
                                               onSaved: (input) => widget
                                                   .con
                                                   .packageTypeData
-                                                  .focusPackageTypeName = input,
+                                                  .packageName = input,
                                               validator: (input) =>
                                                   input.length < 1
                                                       ? S
@@ -384,12 +384,12 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
                                           )),
                                           Switch(
                                             value: widget.con.packageTypeData
-                                                    .featuredShop ??
+                                                    .isFeaturedShop ??
                                                 false,
                                             onChanged: (value) {
                                               setState(() {
                                                 widget.con.packageTypeData
-                                                    .featuredShop = value;
+                                                    .isFeaturedShop = value;
                                               });
                                             },
                                             activeTrackColor:

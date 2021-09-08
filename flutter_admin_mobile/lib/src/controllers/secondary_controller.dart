@@ -199,14 +199,11 @@ class SecondaryController extends ControllerMVC {
       if (pageType == 'do_add') {
         Overlay.of(context).insert(loader);
         setState(() => shopTypeList.clear());
-        FirebaseFirestore.instance
-            .collection('packageDetails')
-            .doc("sample1")
-            .set({
-          'name': packageTypeData.focusPackageTypeName,
+        FirebaseFirestore.instance.collection('packageDetails').add({
+          'name': packageTypeData.packageName,
           'maxProducts': packageTypeData.maxProductSupported,
           'maxCategory': packageTypeData.maxCategorySupported,
-          'isFeaturedShop': packageTypeData.featuredShop,
+          'isFeaturedShop': packageTypeData.isFeaturedShop,
           'monthlyRate': packageTypeData.monthlyRate,
           'yearlyRate': packageTypeData.yearlyRate
         }).catchError((e) {
@@ -242,12 +239,22 @@ class SecondaryController extends ControllerMVC {
   }
 
   Future<void> listenForPackageTypeList() async {
-    final Stream<PackageTypeModel> stream = await getPackageTypeList();
-    stream.listen((PackageTypeModel _list) {
-      setState(() => packageTypeList.add(_list));
-    }, onError: (a) {
-      print(a);
-    }, onDone: () {});
+    print("listenForPackageTypeList///");
+    FirebaseFirestore.instance
+        .collection("packageDetails")
+        .get()
+        .then((querySnapshot) {
+      querySnapshot.docs.forEach((result) {
+        print(result);
+        print(result.id);
+        print(result.reference);
+        print(result.data());
+        setState(() =>
+            packageTypeList.add(PackageTypeModel.fromJSON(result.data())));
+      });
+    }).catchError((e) {
+      print(e);
+    }).whenComplete(() {});
   }
 
   paymentStatsUpdate(type, invoiceId, id) async {
