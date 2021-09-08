@@ -239,6 +239,7 @@ class SecondaryController extends ControllerMVC {
   }
 
   Future<void> listenForPackageTypeList() async {
+    packageTypeList.clear();
     print("listenForPackageTypeList///");
     FirebaseFirestore.instance
         .collection("packageDetails")
@@ -357,6 +358,8 @@ class SecondaryController extends ControllerMVC {
         listenForDeliveryFees();
       } else if (table == 'shopFocusType') {
         listenForShopTypeList();
+      } else if (table == 'packageType') {
+        listenForPackageTypeList();
       } else if (table == 'banner') {
         listenForBanner(1);
       } else if (table == 'deliveryTips') {

@@ -52,8 +52,7 @@ class _PackageTypesState extends StateMVC<PackageTypes> {
                       child: Wrap(children: [
                         Text(
                           S.of(context).manage_package_type,
-                          style:
-                              Theme.of(context).textTheme.subtitle1,
+                          style: Theme.of(context).textTheme.subtitle1,
                         ),
                         SizedBox(width: 10),
                         Container(
@@ -70,12 +69,8 @@ class _PackageTypesState extends StateMVC<PackageTypes> {
                             iconSize: 30.0,
                             //color: Palette.facebookBlue,
                             onPressed: () {
-                              AddEdPopupHelper.exit(
-                                  context,
-                                  _con,
-                                  this.callback,
-                                  PackageTypeModel(),
-                                  'add');
+                              AddEdPopupHelper.exit(context, _con,
+                                  this.callback, PackageTypeModel(), 'add');
                             },
                           ),
                         ),
@@ -88,8 +83,8 @@ class _PackageTypesState extends StateMVC<PackageTypes> {
                             margin: EdgeInsets.only(
                                 left: 20, right: 20, bottom: 30),
                             child: Wrap(
-                              children: List.generate(_con.packageTypeList.length,
-                                  (index) {
+                              children: List.generate(
+                                  _con.packageTypeList.length, (index) {
                                 PackageTypeModel _packageTypeData =
                                     _con.packageTypeList.elementAt(index);
                                 return InkWell(
@@ -130,24 +125,11 @@ class _PackageTypesState extends StateMVC<PackageTypes> {
                   },
                 ),
                 new ListTile(
-                  leading: new Icon(Icons.edit),
-                  title: new Text(S.of(context).edit),
-                  onTap: () => {
-                    Navigator.pop(context),
-                    AddEdPopupHelper.exit(
-                        context, _con, this.callback, Details, 'edit'),
-                  },
-                ),
-                new ListTile(
                   leading: new Icon(Icons.delete),
                   title: new Text(S.of(context).delete),
                   onTap: () async {
                     await _con.delete('shopFocusType', id);
-
                     Navigator.pop(context);
-                    setState(() {
-                      _con.packageTypeList.clear();
-                    });
                   },
                 ),
               ],

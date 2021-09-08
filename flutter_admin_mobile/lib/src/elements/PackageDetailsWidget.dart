@@ -140,8 +140,8 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
                                           child: TextFormField(
                                               textAlign: TextAlign.left,
                                               autocorrect: true,
-                                              initialValue: widget.packageType
-                                                  .packageName,
+                                              initialValue: widget
+                                                  .packageType.packageName,
                                               onSaved: (input) => widget
                                                   .con
                                                   .packageTypeData
@@ -375,7 +375,7 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
                                         children: [
                                           Expanded(
                                               child: Text(
-                                            "Featured Shop",
+                                            S.of(context).feature_shop,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyText2
@@ -407,13 +407,8 @@ class _PackageDetailsWidgetState extends StateMVC<PackageDetailsWidget> {
                                         // ignore: deprecated_member_use
                                         FlatButton(
                                           onPressed: () {
-                                            widget.pageType == 'add'
-                                                ? widget.con.addPackageType(
-                                                    context, 'null', 'do_add')
-                                                : widget.con.addEdFocusType(
-                                                    context,
-                                                    widget.packageType.id,
-                                                    'update');
+                                            widget.con.addPackageType(
+                                                context, 'null', 'do_add');
                                           },
                                           padding: EdgeInsets.only(
                                               top: 15,

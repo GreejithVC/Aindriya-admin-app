@@ -2700,6 +2700,15 @@ class S {
     );
   }
 
+  String get feature_shop {
+    return Intl.message(
+      'Featured Shop',
+      name: 'feature_shop',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get max_category_supported {
     return Intl.message(
       'Max Category Supported',
