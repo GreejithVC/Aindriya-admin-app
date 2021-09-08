@@ -40,11 +40,13 @@ class PackageTypeBoxWidget extends StatelessWidget {
                 maxLines: 1,
                 style: Theme.of(context).textTheme.caption,
               ),
-              Switch(
-                value: packageTypeData.isFeaturedShop,
-                onChanged: (value) {},
-                activeTrackColor: Colors.lightGreenAccent,
-                activeColor: Colors.green,
+              AbsorbPointer(
+                child: Switch(
+                  value: packageTypeData.isFeaturedShop,
+                  onChanged: (value) {},
+                  activeTrackColor: Colors.lightGreenAccent,
+                  activeColor: Colors.green,
+                ),
               ),
             ],
           ),

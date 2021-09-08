@@ -247,29 +247,6 @@ Future<Stream<ShopTypeModel>> getShopTypeList() async {
   }
 }
 
-Future<Stream<PackageTypeModel>> getPackageTypeList() async {
-  Uri uri =
-      Helper.getUri('Api_admin/shopFocusType/list/no/${currentUser.value.id}');
-  Map<String, dynamic> _queryParams = {};
-
-  _queryParams['api_token'] = currentUser.value.apiToken;
-  uri = uri.replace(queryParameters: _queryParams);
-  try {
-    final client = new http.Client();
-    final streamedRest = await client.send(http.Request('get', uri));
-    return streamedRest.stream
-        .transform(utf8.decoder)
-        .transform(json.decoder)
-        .map((data) => Helper.getData(data))
-        .expand((data) => (data as List))
-        .map((data) => PackageTypeModel.fromJSON(data));
-  } catch (e) {
-    print(e);
-    print(CustomTrace(StackTrace.current, message: uri.toString()).toString());
-    return new Stream.value(new PackageTypeModel.fromJSON({}));
-  }
-}
-
 Future<Stream<Currency>> getCurrency() async {
   Uri uri = Helper.getUri('Api_admin/currency/list/no/${currentUser.value.id}');
   Map<String, dynamic> _queryParams = {};

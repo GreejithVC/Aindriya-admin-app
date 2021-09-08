@@ -251,7 +251,7 @@ class SecondaryController extends ControllerMVC {
         print(result.reference);
         print(result.data());
         setState(() =>
-            packageTypeList.add(PackageTypeModel.fromJSON(result.data())));
+            packageTypeList.add(PackageTypeModel.fromJSON(result.data(), result.id)));
       });
     }).catchError((e) {
       print(e);

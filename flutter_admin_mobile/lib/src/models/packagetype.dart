@@ -9,9 +9,9 @@ class PackageTypeModel {
 
   PackageTypeModel();
 
-  PackageTypeModel.fromJSON(Map<String, dynamic> jsonMap) {
+  PackageTypeModel.fromJSON(Map<String, dynamic> jsonMap, String newId) {
     try {
-      id = jsonMap['id'];
+      id = newId;
       packageName = jsonMap['name'] != null ? jsonMap['name'] : '';
       maxProductSupported =
           jsonMap['maxProducts'] != null ? jsonMap['maxProducts'] : '';
