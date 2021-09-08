@@ -219,6 +219,22 @@ class SecondaryController extends ControllerMVC {
     }
   }
 
+  deletePackageType(id) {
+    FirebaseFirestore.instance
+        .collection('packageDetails')
+        .doc(id)
+        .delete()
+        .then((_) {
+      print("success!");
+    }).catchError((e) {
+      print(e);
+    }).whenComplete(() {
+      listenForPackageTypeList();
+    });
+    showToast("Deleted Successfully",
+        gravity: Toast.BOTTOM, duration: Toast.LENGTH_SHORT);
+  }
+
   Future<void> listenForDeliveryTips() async {
     final Stream<DeliveryTipsModel> stream = await getDeliveryTips();
     stream.listen((DeliveryTipsModel _list) {
@@ -250,8 +266,8 @@ class SecondaryController extends ControllerMVC {
         print(result.id);
         print(result.reference);
         print(result.data());
-        setState(() =>
-            packageTypeList.add(PackageTypeModel.fromJSON(result.data(), result.id)));
+        setState(() => packageTypeList
+            .add(PackageTypeModel.fromJSON(result.data(), result.id)));
       });
     }).catchError((e) {
       print(e);
@@ -358,8 +374,6 @@ class SecondaryController extends ControllerMVC {
         listenForDeliveryFees();
       } else if (table == 'shopFocusType') {
         listenForShopTypeList();
-      } else if (table == 'packageType') {
-        listenForPackageTypeList();
       } else if (table == 'banner') {
         listenForBanner(1);
       } else if (table == 'deliveryTips') {

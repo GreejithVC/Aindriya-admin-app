@@ -128,7 +128,7 @@ class _PackageTypesState extends StateMVC<PackageTypes> {
                   leading: new Icon(Icons.delete),
                   title: new Text(S.of(context).delete),
                   onTap: () async {
-                    await _con.delete('shopFocusType', id);
+                    await _con.deletePackageType(id);
                     Navigator.pop(context);
                   },
                 ),
