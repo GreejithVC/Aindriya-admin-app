@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
 
         builder: (context, Setting _setting, _) {
           return VRouter(
-            title: 'Flutter Web',
+            title: 'Master',
             locale: _setting.mobileLanguage.value,
             localizationsDelegates: [
               S.delegate,
