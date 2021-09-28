@@ -44,23 +44,9 @@ class _HomePageState extends StateMVC<HomePage> {
           children: [
             Row(
               children: [
-                Container(height: double.infinity, width: size.width / 2, color: Theme.of(context).primaryColorDark),
-                Container(height: double.infinity, width: size.width / 2, color: Theme.of(context).primaryColor,),
+                Container(height: double.infinity, width: size.width / 2, color:loginBgGreyColor),
+                Container(height: double.infinity, width: size.width / 2, color:loginBgGreyColor),
               ],
-            ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.all(32),
-                child: Text(
-                  S.of(context).welcome,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
             ),
             Align(
               alignment: Alignment.centerLeft,
@@ -122,32 +108,6 @@ class _HomePageState extends StateMVC<HomePage> {
                   Icons.menu,
                   color: Theme.of(context).primaryColorDark,
                   size: 28,
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: EdgeInsets.all(32),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(
-                      Icons.copyright,
-                      color: Colors.grey,
-                      size: 24,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      "Copyright 2021",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ),

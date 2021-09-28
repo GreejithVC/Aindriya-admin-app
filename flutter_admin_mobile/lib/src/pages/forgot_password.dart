@@ -32,7 +32,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       padding: EdgeInsets.all(17),
       child: Center(
         child: Card(
-          elevation: 4,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(25),
@@ -47,7 +47,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         ? 0.8
                         : 0.9),
             width:520,
-            color: Theme.of(context).primaryColor,
+            color: loginBgGreyColor,
             child: Form(
               key: widget.con.loginFormKey,
             child: Center(
@@ -57,12 +57,20 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Container(
+                          width: double.infinity,
+
+                          // margin: EdgeInsets.symmetric(horizontal: 100),
+                          child: Image(
+                            image: AssetImage('assets/buysmartranst.png'),
+                            fit: BoxFit.contain,
+                          )),
                       Text(
-                        'Forgot Password',
+                        "Master",
                         style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey[700],
-                        ),
+                            fontSize: 30,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600),
                       ),
                       SizedBox(
                         height: 8,
@@ -70,7 +78,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       Container(
                         width: 30,
                         child: Divider(
-                          color: kPrimaryColor,
+                          color: loginBgColor,
                           thickness: 2,
                         ),
                       ),
@@ -102,13 +110,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           height: 50,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: kPrimaryColor,
+                            color: loginBgColor,
                             borderRadius: BorderRadius.all(
                               Radius.circular(25),
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: kPrimaryColor.withOpacity(0.2),
+                                color: loginBgColor.withOpacity(0.2),
                                 spreadRadius: 4,
                                 blurRadius: 7,
                                 offset: Offset(0, 3),
@@ -147,7 +155,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                 Text(
                                   'Back',
                                   style: TextStyle(
-                                    color: kPrimaryColor,
+                                    color: loginBgColor,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -157,7 +165,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                 ),
                                 Icon(
                                   Icons.arrow_forward,
-                                  color: kPrimaryColor,
+                                  color: loginBgColor,
                                 ),
                               ],
                             ),
