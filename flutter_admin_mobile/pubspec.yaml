@@ -49,7 +49,7 @@ dependencies:
   printing: 5.2.1
   pie_chart:
   date_format: ^2.0.2
-  geocoder:
+#  geocoder: ^0.2.1
   file_picker:
   flutter_downloader: ^1.6.0
   badges: ^2.0.1
@@ -63,12 +63,12 @@ dependencies:
   lite_rolling_switch: ^0.1.1
   after_layout: ^1.1.0
   universal_html: ^2.0.8
-  just_audio:
+#  just_audio:
   #flutter_audio_desktop: ^0.1.0
   path: ^1.8.0
   #filepicker_windows: ^2.0.0
-  flutter_colorpicker: ^0.4.0
-  hexcolor: ^2.0.4
+  flutter_colorpicker: ^0.6.0
+  hexcolor: ^2.0.5
   url_launcher: ^6.0.7
   otp_text_field: ^1.1.1
 
