@@ -461,7 +461,7 @@ class _NavBarItemState extends State<NavBarItem> {
                   Padding(
                     padding: EdgeInsets.only(left: 20.0),
                     child: Text(
-                      widget.navtext,
+                      widget?.navtext ?? "",
                       style: TextStyle(
                         color: widget.active ? Colors.white : Colors.white54,
                       ),

@@ -14,6 +14,8 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  bool _showPassword = false;
+  @override
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -82,17 +84,34 @@ class _LogInState extends State<LogIn> {
                     SizedBox(
                       height: 32,
                     ),
-                    TextFormField(
-                      onSaved: (input) => widget.con.userData.password = input,
-                      validator: (input) =>  input.length<= 1 ? 'Invalid Password' : null,
-                      decoration: InputDecoration(
-                        hintText: S.of(context).password,
-                        labelText: S.of(context).password,
-                        suffixIcon: Icon(
-                          Icons.lock_outline,
+                    Stack(
+                      children: [
+                        TextFormField(
+                          onSaved: (input) => widget.con.userData.password = input,
+                          validator: (input) =>  input.length<= 1 ? 'Invalid Password' : null,
+                          decoration: InputDecoration(
+                            hintText: S.of(context).password,
+                            labelText: S.of(context).password,
+                            // suffixIcon: Icon(
+                            //   Icons.lock_outline,
+                            // ),
+                          ),
+                          obscureText: !_showPassword,
                         ),
-                      ),
-                      obscureText: true,
+                        Positioned(
+                          right:10 ,top: 40,
+                          child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _showPassword = !_showPassword;
+                                });
+                              },
+                              child:Text( _showPassword == false ? "show":"hide",style: TextStyle(color: Colors.black),)
+
+                          ),
+                        ),
+
+                      ],
                     ),
                     SizedBox(
                       height: 10,
