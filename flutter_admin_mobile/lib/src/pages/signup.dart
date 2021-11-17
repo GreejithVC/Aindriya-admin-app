@@ -15,7 +15,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   String _value ;
-
+  bool _showPassword = false;
   @override
   void initState() {
     // TODO: implement initState
@@ -144,16 +144,33 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: 32,
                         ),
-                        TextFormField(
-                          onSaved: (input) => widget.con.registerData.password = input,
-                          validator: (input) =>  input.length < 3 ? S.of(context).should_be_more_than_3_characters : null,
-                          decoration: InputDecoration(
-                            hintText: S.of(context).password,
-                            labelText: S.of(context).password,
-                            suffixIcon: Icon(
-                              Icons.lock_outline,
+                        Column(
+                          children: [
+                            TextFormField(
+                              onSaved: (input) => widget.con.registerData.password = input,
+                              obscureText: !_showPassword,
+                              validator: (input) =>  input.length < 3 ? S.of(context).should_be_more_than_3_characters : null,
+                              decoration: InputDecoration(
+                                hintText: S.of(context).password,
+                                labelText: S.of(context).password,
+                                suffixIcon: Icon(
+                                  Icons.lock_outline,
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              right:10 ,top: 40,
+                              child: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _showPassword = !_showPassword;
+                                    });
+                                  },
+                                  child:Text( _showPassword == false ? "show":"hide",style: TextStyle(color: Colors.black),)
+
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 64,
